@@ -1,0 +1,17 @@
+{
+  "name": "l2",
+  "version": "1.0.0",
+  "description": "1dv610 Laboration 2 Parser",
+  "type": "module",
+  "main": "/src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "node ..."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.lnu.se:1dv610/student/oe222ez/l2.git"
+  },
+  "author": "Oliwer Ellréus",
+  "license": "ISC"
+}
