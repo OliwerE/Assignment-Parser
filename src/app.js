@@ -7,6 +7,12 @@ const string2 = 'Meningen består. Gör den?'
 const string3 = 'Meningen består.'
 document.parse(string2)
 
+const sentencesObjects = document.getSentences()
+console.log(sentencesObjects)
+
+console.log(sentencesObjects[0].getSentenceString())
+console.log(sentencesObjects[1].getSentenceString())
+
 /*
 
  * Bugg: två meningar med samma slut token (.?!) efter varabdra blir oändlig loop.

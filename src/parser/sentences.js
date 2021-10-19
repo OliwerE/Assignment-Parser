@@ -6,6 +6,10 @@ export class Sentences {
     #tokenizer
     #sentenceArray = [] // Alla meningar ?, !, .
 
+  getSentences() {
+    return [...this.#sentenceArray]
+  }
+
   startCreateSentences(input) {
     this.runTokenizer(input)
     this.createAllSentences()
@@ -20,7 +24,7 @@ export class Sentences {
     // console.log(this.#tokenizer.getActiveToken())
     // loop här för varje sentence tills active token är end token.
     while(true) { // 
-      // console.log(this.#tokenizer.getActiveToken().tokenType)
+      console.log('all loop')
       if (this.#tokenizer.getActiveToken().tokenType === 'END') {
         break
       } else {
@@ -31,18 +35,16 @@ export class Sentences {
 
   createSentence() {
     let activeToken = this.#tokenizer.getActiveToken()
-    const tokenType = activeToken.tokenType
-    const sentenceEnd = tokenType !== 'DOT' || tokenType !== 'QUESTION' || tokenType !== 'EXCLAMATION'
-
     const sentence = new Sentence()
-    for (let i = 0; i < 5; i++) { // sentenceEnd
-      console.log(activeToken)
+    while(true) {
       sentence.addToken(activeToken)
+      if (activeToken.tokenType !== 'WORD') {
       this.#tokenizer.setNextActiveToken()
       activeToken = this.#tokenizer.getActiveToken()
-      if (activeToken.tokenType === 'END') {
-        // throw exception!!
-        break
+      break
+      } else {
+      this.#tokenizer.setNextActiveToken()
+      activeToken = this.#tokenizer.getActiveToken()
       }
     }
     this.#sentenceArray.push(sentence)

@@ -7,6 +7,11 @@ export class Document {
     this.#sentences.startCreateSentences(input)
   }
 
+  getSentences() {
+    return this.#sentences.getSentences()
+  }
+
+  /*
   getAllSentencesTypes() {
 
   }
@@ -22,5 +27,6 @@ export class Document {
   getAllExclamationSentences() {
 
   }
+  */
 
 }
