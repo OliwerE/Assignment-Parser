@@ -1,7 +1,4 @@
-// import { Document } from "./parser/document.js"
 import { PrettyPrinter } from "./prettyPrinter/prettyPrinter.js"
-
-
 
 const prettyPrinter = new PrettyPrinter()
 
