@@ -1,0 +1,5 @@
+export class ActiveToken {
+  constructor() {
+  
+  }
+}
