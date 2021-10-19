@@ -11,7 +11,10 @@ const sentencesObjects = document.getSentences()
 console.log(sentencesObjects)
 
 console.log(sentencesObjects[0].getSentenceString())
+console.log(sentencesObjects[0].getSentenceType())
+
 console.log(sentencesObjects[1].getSentenceString())
+console.log(sentencesObjects[1].getSentenceType())
 
 /*
 

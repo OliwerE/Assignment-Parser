@@ -7,12 +7,16 @@ export class Sentence extends ActiveToken { // extend active token klass? // ext
     this.#tokens.push(token)
   }
 
+  getSentenceType() {
+    return this.#tokens[this.#tokens.length - 1].tokenType
+  }
+
   getSentenceString() {
     let sentence = ''
     for (let i = 0; i < this.#tokens.length; i++) {
       if (this.#tokens[i].tokenType === 'END') {
         // exception!!
-      } else if (this.#tokens[i].tokenType !== 'WORD' || i === 0) {
+      } else if (this.#tokens[i].tokenType !== 'WORD' || i === 0 ) {
         sentence += this.#tokens[i].value
       } else {
         sentence += ' ' + this.#tokens[i].value
