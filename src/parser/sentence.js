@@ -1,13 +1,12 @@
-import { ActiveToken } from "./activeToken.js"
-
-export class Sentence extends ActiveToken { // extend active token klass? // extends ActiveToken
+export class Sentence {
   #tokens = []
+  #activeSentenceToken
 
   addToken(token) {
     this.#tokens.push(token)
   }
 
-  getSentenceType() {
+  getEndType() {
     return this.#tokens[this.#tokens.length - 1].tokenType
   }
 
@@ -15,7 +14,7 @@ export class Sentence extends ActiveToken { // extend active token klass? // ext
     let sentence = ''
     for (let i = 0; i < this.#tokens.length; i++) {
       if (this.#tokens[i].tokenType === 'END') {
-        // exception!!
+        throw new Error('Token type END found in sentence.')
       } else if (this.#tokens[i].tokenType !== 'WORD' || i === 0 ) {
         sentence += this.#tokens[i].value
       } else {
@@ -25,7 +24,28 @@ export class Sentence extends ActiveToken { // extend active token klass? // ext
     return sentence
   }
 
-  // metod:  Få sentence som sträng
+  getActiveSentenceToken() {
+    if (this.#activeSentenceToken === undefined) {
+      this.#activeSentenceToken = this.#tokens[0]
+    }
+    return this.#activeSentenceToken
+  }
 
-  // metod:  stega igenom word objekt
+  setNextActiveSentenceToken() {
+    const currentIndex = this.#tokens.indexOf(this.#activeSentenceToken)
+    if (currentIndex === (this.#tokens.length - 1)) {
+      this.#activeSentenceToken = this.#tokens[0]
+    } else {
+      this.#activeSentenceToken = this.#tokens[currentIndex + 1]
+    }
+  }
+
+  setPrevActiveSentenceToken() {
+    const currentIndex = this.#tokens.indexOf(this.#activeSentenceToken)
+    if (currentIndex === 0) {
+      this.#activeSentenceToken = this.#tokens[this.#tokens.length - 1]
+    } else {
+      this.#activeSentenceToken = this.#tokens[currentIndex - 1]
+    }
+  }
 }
