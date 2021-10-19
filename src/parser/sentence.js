@@ -1,6 +1,8 @@
-export class Sentence extends ActiveToken { // extend active token klass?
-  constructor(tokens) {
-    this.sentenceTokens = tokens // Sentence in tokens!
+export class Sentence { // extend active token klass? // extends ActiveToken
+  #tokens = []
+
+  addToken(token) {
+    this.#tokens.push(token)
   }
 
   // metod:  Få sentence som sträng
