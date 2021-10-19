@@ -46,5 +46,4 @@ export class Sentences {
     }
     this.#sentenceArray.push(sentence)
   }
-
 }

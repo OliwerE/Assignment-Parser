@@ -65,5 +65,4 @@ export class Document {
     const exclamationSentences = this.#findSpecificSentenceType('EXCLAMATION')
     return exclamationSentences
   }
-
 }
