@@ -11,6 +11,7 @@ const sentencesObjects = document.getSentences()
 
 console.log(sentencesObjects)
 
+/*
 console.log(sentencesObjects[0].getSentenceString())
 console.log(sentencesObjects[0].getEndType())
 
@@ -36,6 +37,8 @@ console.log(sentencesObjects[0].getActiveSentenceToken())
 
 sentencesObjects[0].setPrevActiveSentenceToken()
 console.log(sentencesObjects[0].getActiveSentenceToken())
+*/
+
 
 // console.log(sentencesObjects[1].getSentenceString())
 // console.log(sentencesObjects[1].getEndType())
