@@ -36,26 +36,20 @@ export class Document {
     }
   }
 
-  getSentences() {
-    return this.#documentTokens[0].value
-  }
-
-  /*
-  getAllSentencesTypes() {
-
+  getAllSentences() {
+    return [...this.#documentTokens[0].value]
   }
 
   getAllDotSentences() {
-    
+    // fix
   }
 
   getAllQuestionSentences() {
-
+    // fix
   }
 
   getAllExclamationSentences() {
-
+    // fix
   }
-  */
 
 }

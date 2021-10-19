@@ -11,29 +11,26 @@ export class Sentences {
   }
 
   startCreateSentences(input) {
-    this.runTokenizer(input)
-    this.createAllSentences()
+    this.#runTokenizer(input)
+    this.#createAllSentences()
   }
 
-  runTokenizer(input) {
+  #runTokenizer(input) {
     this.#tokenizer = new Tokenizer(sentenceGrammar)
     this.#tokenizer.startTokenizer(input)
   }
 
-  createAllSentences() {
-    // console.log(this.#tokenizer.getActiveToken())
-    // loop här för varje sentence tills active token är end token.
-    while(true) { // 
-      console.log('all loop')
+  #createAllSentences() {
+    while(true) {
       if (this.#tokenizer.getActiveToken().tokenType === 'END') {
         break
       } else {
-        this.createSentence()
+        this.#createSentence()
       }
     }
   }
 
-  createSentence() {
+  #createSentence() {
     let activeToken = this.#tokenizer.getActiveToken()
     const sentence = new Sentence()
     while(true) {
@@ -51,11 +48,3 @@ export class Sentences {
   }
 
 }
-
-
-/*
-
-  * Skapar sentence.
-  * 
-
-*/

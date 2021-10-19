@@ -7,7 +7,7 @@ const string2 = 'Meningen består. Gör den? JA!'
 const string3 = 'Meningen består.'
 document.parse(string2)
 
-const sentencesObjects = document.getSentences()
+const sentencesObjects = document.getAllSentences()
 
 console.log(sentencesObjects)
 
