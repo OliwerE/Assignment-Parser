@@ -11,6 +11,16 @@ const sentencesObjects = document.getAllSentences()
 
 console.log(sentencesObjects)
 
+console.log(document.getAllDotSentences())
+console.log(document.getAllQuestionSentences())
+console.log(document.getAllExclamationSentences())
+
+console.log('----')
+
+console.log(document.getAllDotSentences()[0].getSentenceString())
+console.log(document.getAllQuestionSentences()[0].getSentenceString())
+console.log(document.getAllExclamationSentences()[0].getSentenceString())
+
 /*
 console.log(sentencesObjects[0].getSentenceString())
 console.log(sentencesObjects[0].getEndType())

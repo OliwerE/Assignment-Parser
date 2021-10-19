@@ -41,15 +41,29 @@ export class Document {
   }
 
   getAllDotSentences() {
-    // fix
+    const dotSentences = this.#findSpecificSentenceType('DOT')
+    return dotSentences
+  }
+
+  #findSpecificSentenceType(sentenceType) {
+    const foundSentences = []
+    const sentencesLength = this.#documentTokens[0].value.length
+    for (let i = 0; i < sentencesLength; i++) {
+      if (this.#documentTokens[0].value[i].getEndType() === sentenceType) {
+        foundSentences.push(this.#documentTokens[0].value[i])
+      }
+    }
+    return foundSentences
   }
 
   getAllQuestionSentences() {
-    // fix
+    const questionSentences = this.#findSpecificSentenceType('QUESTION')
+    return questionSentences
   }
 
   getAllExclamationSentences() {
-    // fix
+    const exclamationSentences = this.#findSpecificSentenceType('EXCLAMATION')
+    return exclamationSentences
   }
 
 }
