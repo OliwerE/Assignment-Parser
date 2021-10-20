@@ -1,5 +1,6 @@
 import * as sentenceTests from './sentenceTests.js'
 import * as sentencesTests from './sentencesTests.js'
+import * as documentTests from './documentTests.js'
 
 const handlePass = (isPass) => {
   return (isPass ? '\x1b[32m' + 'PASS' + '\x1b[0m' : '\x1b[31m' + 'FAIL' + '\x1b[0m')
@@ -24,23 +25,17 @@ const runTests = () => {
   console.log('tc14: Stega bakåt tills första token är aktiv igen, Indata: "En mening.", Input: "<<<", Förväntat: värde: "En", typ: "WORD": ' + handlePass(sentenceTests.tc14()))
   
   console.log('\n----- Sentences Tests -----')
-  console.log('tc1: Returnera alla meningar, Indata: "a. b? c!", Förväntat: "Array med tre meningar: a., b? och c!": ' + handlePass(sentenceTests.tc1()))
-  // console.log('tc1: Returnera alla meningar, Indata: "a. b? c!", Förväntat: "Array med tre meningar: a., b? och c!": ' + handlePass(sentenceTests.tc1()))
+  console.log('tc1: Returnera alla meningar, Indata: "a. b? c!", Förväntat: "Array med tre meningar: a., b? och c!": ' + handlePass(sentencesTests.tc1()))
 
   console.log('\n----- Document Tests -----')
+  console.log('tc1: Returnera alla meningar, Indata: "a! b? c. d? e! f.", Förväntat: "Array som innehåller meningarna: a!, b?, c., d?, e!, f.": ' + handlePass(documentTests.tc1()))
+  console.log('tc2: Returnera alla meningar med punkt, Indata: "a! b? c. d? e! f.", Förväntat: "Array som innehåller meningarna: c., f.": ' + handlePass(documentTests.tc2()))
+  console.log('tc3: Returnera alla frågor, Indata: "a! b? c. d? e! f.", Förväntat: "Array som innehåller meningarna: b?, d?": ' + handlePass(documentTests.tc3()))
+  console.log('tc3: Returnera alla meningar med utropstecken, Indata: "a! b? c. d? e! f.", Förväntat: "Array som innehåller meningarna: a!, e!": ' + handlePass(documentTests.tc4()))
 
   console.log('\n----- Pretty Printer Tests -----')
+  console.log('Manuella tester finns i README.md')
 
 
 }
 runTests()
-
-/*
-
-sentences:
-
-
-
-
-
-*/
