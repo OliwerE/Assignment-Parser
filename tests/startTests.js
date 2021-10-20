@@ -24,7 +24,8 @@ const runTests = () => {
   console.log('tc14: Stega bakåt tills första token är aktiv igen, Indata: "En mening.", Input: "<<<", Förväntat: värde: "En", typ: "WORD": ' + handlePass(sentenceTests.tc14()))
   
   console.log('\n----- Sentences Tests -----')
-  console.log('tc1: Returnera mening, Indata: "En mening.", Förväntat: "En mening.": ' + handlePass(sentenceTests.tc1()))
+  console.log('tc1: Returnera alla meningar, Indata: "a. b? c!", Förväntat: "Array med tre meningar: a., b? och c!": ' + handlePass(sentenceTests.tc1()))
+  // console.log('tc1: Returnera alla meningar, Indata: "a. b? c!", Förväntat: "Array med tre meningar: a., b? och c!": ' + handlePass(sentenceTests.tc1()))
 
   console.log('\n----- Document Tests -----')
 
@@ -36,13 +37,9 @@ runTests()
 
 /*
 
-sentence:
+sentences:
 
- returnera mening
- få end token typ
- få aktiv token
- set next - få ny aktiv token
- set prev - få förra token
+
 
 
 
