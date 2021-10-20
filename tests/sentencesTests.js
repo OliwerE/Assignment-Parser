@@ -1,0 +1,1 @@
+import { Sentences } from "../src/parser/sentences.js";

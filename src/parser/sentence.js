@@ -1,6 +1,7 @@
 export class Sentence {
   #tokens = []
   #activeSentenceToken
+  #currentTokenIndex = 0
 
   addToken(token) {
     this.#tokens.push(token)
@@ -32,20 +33,22 @@ export class Sentence {
   }
 
   setNextActiveSentenceToken() {
-    const currentIndex = this.#tokens.indexOf(this.#activeSentenceToken)
-    if (currentIndex === (this.#tokens.length - 1)) {
-      this.#activeSentenceToken = this.#tokens[0]
+    if (this.#currentTokenIndex === (this.#tokens.length - 1)) {
+      this.#currentTokenIndex = 0
+      this.#activeSentenceToken = this.#tokens[this.#currentTokenIndex]
     } else {
-      this.#activeSentenceToken = this.#tokens[currentIndex + 1]
+      this.#currentTokenIndex = this.#currentTokenIndex + 1
+      this.#activeSentenceToken = this.#tokens[this.#currentTokenIndex]
     }
   }
 
   setPrevActiveSentenceToken() {
-    const currentIndex = this.#tokens.indexOf(this.#activeSentenceToken)
-    if (currentIndex === 0) {
-      this.#activeSentenceToken = this.#tokens[this.#tokens.length - 1]
+    if (this.#currentTokenIndex === 0) {
+      this.#currentTokenIndex = this.#tokens.length - 1
+      this.#activeSentenceToken = this.#tokens[this.#currentTokenIndex]
     } else {
-      this.#activeSentenceToken = this.#tokens[currentIndex - 1]
+      this.#currentTokenIndex = this.#currentTokenIndex - 1
+      this.#activeSentenceToken = this.#tokens[this.#currentTokenIndex]
     }
   }
 }
