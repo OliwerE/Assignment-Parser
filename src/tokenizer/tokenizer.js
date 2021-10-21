@@ -1,23 +1,24 @@
+import { Token } from "./token.js"
+
 export class Tokenizer {
-  #grammar
   #string = ''
+  #grammar
   #potentialTokens = []
   #tokenizerResultTokens = []
-  #activeToken
-  #activeTokenIndex = 0
 
   constructor(grammar) {
     this.#grammar = grammar
   }
-  startTokenizer(string) {
+
+  start(inputString) {
     try {
-      this.#setString(string)
+      this.#setString(inputString)
       this.#trimCurrentString()
       this.#createAllTokens()
-      this.#setupActiveToken()
     } catch (err) {
       this.#handleError(err)
     }
+    return this.#tokenizerResultTokens
   }
 
   #setString(string) {
@@ -33,7 +34,7 @@ export class Tokenizer {
       this.#matchAllTokenTypes()
       const token = this.#getBestTokenMatch()
       this.#addToken(token)
-      this.#removeTokenFromString(token.value)
+      this.#removeTokenFromString(token.getTokenValue())
       this.#trimCurrentString()
     }
     this.#addEndToken()
@@ -63,29 +64,20 @@ export class Tokenizer {
 
   #createTokenTypeMatchObject(key, matchString) {
     if (matchString === '') {
-      return {
-        tokenType: key,
-        value: null
-      }      
+      return new Token(key, null)
     } else {
-      return {
-        tokenType: key,
-        value: matchString
-      }
+      return new Token(key, matchString)
     }
   }
 
   #addIfPotentialToken(token) {
-    if(token.value !== null) {
+    if(token.getTokenValue() !== null) {
         this.#potentialTokens.push(token)
     }
   }
 
   #getBestTokenMatch() {
-    let bestMatchingToken = {
-      tokenType: null,
-      value: ''
-    }
+    let bestMatchingToken = new Token(null, '')
     for (let i = 0; i < this.#potentialTokens.length; i++) {
       bestMatchingToken = this.#findBetterTokenMatch(this.#potentialTokens[i], bestMatchingToken)
     }
@@ -94,13 +86,13 @@ export class Tokenizer {
   }
 
   #findBetterTokenMatch(alternativeToken, bestMatchingToken) {
-    if (alternativeToken.value.length > bestMatchingToken.value.length) {
+    if (alternativeToken.getTokenValue().length > bestMatchingToken.getTokenValue().length) {
       return alternativeToken
     }
   }
 
   #handleLexicalError(token) {
-    if (token.tokenType === null && token.value === '') {
+    if (token.getTokenType() === null && token.getTokenValue() === '') {
       throw new Error('Lexical Error')
     }
   }
@@ -114,22 +106,14 @@ export class Tokenizer {
   }
 
   #addEndToken() {
-    const endToken = {
-      tokenType: 'END',
-      value: ''
-    }
+    const endToken = new Token('END', '')
     this.#addToken(endToken)
-  }
-
-  #setupActiveToken() {
-    this.#setActiveToken(this.#tokenizerResultTokens[0])
   }
 
   #handleError(err) {
     if (err.message === 'Lexical Error') {
       const token = this.#createLexicalErrorToken()
       this.#addToken(token)
-      this.#setupActiveToken()
     } else {
       console.log(err.message)
       process.exit(1)
@@ -137,37 +121,6 @@ export class Tokenizer {
   }
 
   #createLexicalErrorToken() {
-    return {
-      tokenType: 'Lexical Error',
-      value: `No lexical element matches "${this.#string}"`
-    }
-  }
-
-  setNextActiveToken() {
-    if (this.#activeTokenIndex >= this.#tokenizerResultTokens.length - 1) {
-      this.#activeTokenIndex = 0
-      this.#setActiveToken(this.#tokenizerResultTokens[this.#activeTokenIndex])
-    } else {
-      this.#activeTokenIndex += 1
-      this.#setActiveToken(this.#tokenizerResultTokens[this.#activeTokenIndex])
-    }
-  }
-
-  setPrevActiveToken() {
-    if (this.#activeTokenIndex === 0) {
-      this.#activeTokenIndex = this.#tokenizerResultTokens.length - 1
-      this.#setActiveToken(this.#tokenizerResultTokens[this.#activeTokenIndex])
-    } else {
-      this.#activeTokenIndex -= 1
-      this.#setActiveToken(this.#tokenizerResultTokens[this.#activeTokenIndex])
-    }
-  }
-
-  #setActiveToken(token) {
-    this.#activeToken = token
-  }
-
-  getActiveToken() {
-    return this.#activeToken
+    return new Token('Lexical Error', `No lexical element matches "${this.#string}"`)
   }
 }

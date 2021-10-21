@@ -8,18 +8,18 @@ export class Sentence {
   }
 
   getEndType() {
-    return this.#tokens[this.#tokens.length - 1].tokenType
+    return this.#tokens[this.#tokens.length - 1].getTokenType()
   }
 
   getSentenceString() {
     let sentence = ''
     for (let i = 0; i < this.#tokens.length; i++) {
-      if (this.#tokens[i].tokenType === 'END') {
+      if (this.#tokens[i].getTokenType() === 'END') {
         throw new Error('Token type END found in sentence.')
-      } else if (this.#tokens[i].tokenType !== 'WORD' || i === 0 ) {
-        sentence += this.#tokens[i].value
+      } else if (this.#tokens[i].getTokenType() !== 'WORD' || i === 0 ) {
+        sentence += this.#tokens[i].getTokenValue()
       } else {
-        sentence += ' ' + this.#tokens[i].value
+        sentence += ' ' + this.#tokens[i].getTokenValue()
       }
     }
     return sentence

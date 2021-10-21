@@ -1,9 +1,10 @@
 import { Sentence } from "../src/parser/sentence.js"
+import { Token } from "../src/tokenizer/token.js"
 
 export const tc1 = () => {
-  const t1 = { tokenType: 'WORD', value: 'En' }
-  const t2 = { tokenType: 'WORD', value: 'mening' } 
-  const t3 = { tokenType: 'DOT', value: '.' }
+  const t1 = new Token('WORD', 'En')
+  const t2 = new Token('WORD', 'mening')
+  const t3 = new Token('DOT', '.')
 
   const sentence = new Sentence()
   sentence.addToken(t1)
@@ -19,9 +20,9 @@ export const tc1 = () => {
 }
 
 export const tc2 = () => {
-  const t1 = { tokenType: 'WORD', value: 'En' }
-  const t2 = { tokenType: 'WORD', value: 'mening' } 
-  const t3 = { tokenType: 'QUESTION', value: '?' }
+  const t1 = new Token('WORD', 'En')
+  const t2 = new Token('WORD', 'mening')
+  const t3 = new Token('QUESTION', '?')
 
   const sentence = new Sentence()
   sentence.addToken(t1)
@@ -37,9 +38,9 @@ export const tc2 = () => {
 }
 
 export const tc3 = () => {
-  const t1 = { tokenType: 'WORD', value: 'En' }
-  const t2 = { tokenType: 'WORD', value: 'mening' } 
-  const t3 = { tokenType: 'EXCLAMATION', value: '!' }
+  const t1 = new Token('WORD', 'En')
+  const t2 = new Token('WORD', 'mening')
+  const t3 = new Token('EXCLAMATION', '!')
 
   const sentence = new Sentence()
   sentence.addToken(t1)
@@ -55,9 +56,9 @@ export const tc3 = () => {
 }
 
 export const tc4 = () => {
-  const t1 = { tokenType: 'WORD', value: 'En' }
-  const t2 = { tokenType: 'WORD', value: 'mening' } 
-  const t3 = { tokenType: 'DOT', value: '.' }
+  const t1 = new Token('WORD', 'En')
+  const t2 = new Token('WORD', 'mening')
+  const t3 = new Token('DOT', '.')
 
   const sentence = new Sentence()
   sentence.addToken(t1)
@@ -73,12 +74,12 @@ export const tc4 = () => {
 }
 
 export const tc5 = () => {
-  const t1 = { tokenType: 'WORD', value: 'a' }
-  const t2 = { tokenType: 'QUESTION', value: '?' }
-  const t3 = { tokenType: 'WORD', value: 'b' }
-  const t4 = { tokenType: 'EXCLAMATION', value: '!' }
-  const t5 = { tokenType: 'WORD', value: 'c' }
-  const t6 = { tokenType: 'DOT', value: '.' }
+  const t1 = new Token('WORD', 'a')
+  const t2 = new Token('QUESTION', '?')
+  const t3 = new Token('WORD', 'b')
+  const t4 = new Token('EXCLAMATION', '!')
+  const t5 = new Token('WORD', 'c')
+  const t6 = new Token('DOT', '.')
 
   const sentence = new Sentence()
   sentence.addToken(t1)
@@ -98,9 +99,9 @@ export const tc5 = () => {
 }
 
 export const tc6 = () => {
-  const t1 = { tokenType: 'WORD', value: 'En' }
-  const t2 = { tokenType: 'WORD', value: 'mening' } 
-  const t3 = { tokenType: 'QUESTION', value: '?' }
+  const t1 = new Token('WORD', 'En')
+  const t2 = new Token('WORD', 'mening')
+  const t3 = new Token('QUESTION', '?')
 
   const sentence = new Sentence()
   sentence.addToken(t1)
@@ -116,12 +117,12 @@ export const tc6 = () => {
 }
 
 export const tc7 = () => {
-  const t1 = { tokenType: 'WORD', value: 'a' }
-  const t2 = { tokenType: 'DOT', value: '.' }
-  const t3 = { tokenType: 'WORD', value: 'b' }
-  const t4 = { tokenType: 'EXCLAMATION', value: '!' }
-  const t5 = { tokenType: 'WORD', value: 'c' }
-  const t6 = { tokenType: 'QUESTION', value: '?' }
+  const t1 = new Token('WORD', 'a')
+  const t2 = new Token('DOT', '.')
+  const t3 = new Token('WORD', 'b')
+  const t4 = new Token('EXCLAMATION', '!')
+  const t5 = new Token('WORD', 'c')
+  const t6 = new Token('QUESTION', '?')
 
   const sentence = new Sentence()
   sentence.addToken(t1)
@@ -140,9 +141,9 @@ export const tc7 = () => {
 }
 
 export const tc8 = () => {
-  const t1 = { tokenType: 'WORD', value: 'En' }
-  const t2 = { tokenType: 'WORD', value: 'mening' } 
-  const t3 = { tokenType: 'EXCLAMATION', value: '!' }
+  const t1 = new Token('WORD', 'En')
+  const t2 = new Token('WORD', 'mening')
+  const t3 = new Token('EXCLAMATION', '!')
 
   const sentence = new Sentence()
   sentence.addToken(t1)
@@ -158,12 +159,12 @@ export const tc8 = () => {
 }
 
 export const tc9 = () => {
-  const t1 = { tokenType: 'WORD', value: 'a' }
-  const t2 = { tokenType: 'DOT', value: '.' }
-  const t3 = { tokenType: 'WORD', value: 'b' }
-  const t4 = { tokenType: 'QUESTION', value: '?' }
-  const t5 = { tokenType: 'WORD', value: 'c' }
-  const t6 = { tokenType: 'EXCLAMATION', value: '!' }
+  const t1 = new Token('WORD', 'a')
+  const t2 = new Token('DOT', '.')
+  const t3 = new Token('WORD', 'b')
+  const t4 = new Token('QUESTION', '?')
+  const t5 = new Token('WORD', 'c')
+  const t6 = new Token('EXCLAMATION', '!')
 
   const sentence = new Sentence()
   sentence.addToken(t1)
@@ -182,9 +183,9 @@ export const tc9 = () => {
 }
 
 export const tc10 = () => {
-  const t1 = { tokenType: 'WORD', value: 'En' }
-  const t2 = { tokenType: 'WORD', value: 'mening' } 
-  const t3 = { tokenType: 'DOT', value: '.' }
+  const t1 = new Token('WORD', 'En')
+  const t2 = new Token('WORD', 'mening')
+  const t3 = new Token('DOT', '.')
 
   const sentence = new Sentence()
   sentence.addToken(t1)
@@ -192,9 +193,12 @@ export const tc10 = () => {
   sentence.addToken(t3)
 
   sentence.setNextActiveSentenceToken()
-
+  
   const activeToken = sentence.getActiveSentenceToken()
-  if (activeToken.tokenType === 'WORD' && activeToken.value === 'mening') {
+  const tokenType = activeToken.getTokenType()
+  const value = activeToken.getTokenValue()
+
+  if (tokenType === 'WORD' && value === 'mening') {
     return true
   } else {
     return false
@@ -202,9 +206,9 @@ export const tc10 = () => {
 }
 
 export const tc11 = () => {
-  const t1 = { tokenType: 'WORD', value: 'En' }
-  const t2 = { tokenType: 'WORD', value: 'mening' } 
-  const t3 = { tokenType: 'DOT', value: '.' }
+  const t1 = new Token('WORD', 'En')
+  const t2 = new Token('WORD', 'mening')
+  const t3 = new Token('DOT', '.')
 
   const sentence = new Sentence()
   sentence.addToken(t1)
@@ -215,7 +219,10 @@ export const tc11 = () => {
   sentence.setPrevActiveSentenceToken()
 
   const activeToken = sentence.getActiveSentenceToken()
-  if (activeToken.tokenType === 'WORD' && activeToken.value === 'En') {
+  const tokenType = activeToken.getTokenType()
+  const value = activeToken.getTokenValue()
+
+  if (tokenType === 'WORD' && value === 'En') {
     return true
   } else {
     return false
@@ -223,9 +230,9 @@ export const tc11 = () => {
 }
 
 export const tc12 = () => {
-  const t1 = { tokenType: 'WORD', value: 'En' }
-  const t2 = { tokenType: 'WORD', value: 'mening' } 
-  const t3 = { tokenType: 'DOT', value: '.' }
+  const t1 = new Token('WORD', 'En')
+  const t2 = new Token('WORD', 'mening')
+  const t3 = new Token('DOT', '.')
 
   const sentence = new Sentence()
   sentence.addToken(t1)
@@ -235,7 +242,10 @@ export const tc12 = () => {
   sentence.setPrevActiveSentenceToken()
 
   const activeToken = sentence.getActiveSentenceToken()
-  if (activeToken.tokenType === 'DOT' && activeToken.value === '.') {
+  const tokenType = activeToken.getTokenType()
+  const value = activeToken.getTokenValue()
+
+  if (tokenType === 'DOT' && value === '.') {
     return true
   } else {
     return false
@@ -243,9 +253,9 @@ export const tc12 = () => {
 }
 
 export const tc13 = () => {
-  const t1 = { tokenType: 'WORD', value: 'En' }
-  const t2 = { tokenType: 'WORD', value: 'mening' } 
-  const t3 = { tokenType: 'DOT', value: '.' }
+  const t1 = new Token('WORD', 'En')
+  const t2 = new Token('WORD', 'mening')
+  const t3 = new Token('DOT', '.')
 
   const sentence = new Sentence()
   sentence.addToken(t1)
@@ -257,7 +267,10 @@ export const tc13 = () => {
   sentence.setNextActiveSentenceToken()
 
   const activeToken = sentence.getActiveSentenceToken()
-  if (activeToken.tokenType === 'WORD' && activeToken.value === 'En') {
+  const tokenType = activeToken.getTokenType()
+  const value = activeToken.getTokenValue()
+
+  if (tokenType === 'WORD' && value === 'En') {
     return true
   } else {
     return false
@@ -265,9 +278,9 @@ export const tc13 = () => {
 }
 
 export const tc14 = () => {
-  const t1 = { tokenType: 'WORD', value: 'En' }
-  const t2 = { tokenType: 'WORD', value: 'mening' } 
-  const t3 = { tokenType: 'DOT', value: '.' }
+  const t1 = new Token('WORD', 'En')
+  const t2 = new Token('WORD', 'mening')
+  const t3 = new Token('DOT', '.')
 
   const sentence = new Sentence()
   sentence.addToken(t1)
@@ -279,7 +292,10 @@ export const tc14 = () => {
   sentence.setPrevActiveSentenceToken()
 
   const activeToken = sentence.getActiveSentenceToken()
-  if (activeToken.tokenType === 'WORD' && activeToken.value === 'En') {
+  const tokenType = activeToken.getTokenType()
+  const value = activeToken.getTokenValue()
+
+  if (tokenType === 'WORD' && value === 'En') {
     return true
   } else {
     return false

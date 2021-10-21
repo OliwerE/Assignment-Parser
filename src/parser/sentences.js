@@ -1,4 +1,4 @@
-import { Tokenizer } from "../tokenizer/tokenizer.js"
+import { ActiveToken } from "../tokenizer/activeToken.js"
 import { sentenceGrammar } from "../tokenizer/grammars/sentenceGrammar.js"
 import { Sentence } from "./sentence.js"
 
@@ -16,13 +16,13 @@ export class Sentences {
   }
 
   #runTokenizer(input) {
-    this.#tokenizer = new Tokenizer(sentenceGrammar)
-    this.#tokenizer.startTokenizer(input)
+    this.#tokenizer = new ActiveToken(sentenceGrammar)
+    this.#tokenizer.start(input)
   }
 
   #createAllSentences() {
     while(true) {
-      if (this.#tokenizer.getActiveToken().tokenType === 'END') {
+      if (this.#tokenizer.getActiveToken().getTokenType() === 'END') {
         break
       } else {
         this.#createSentence()
@@ -35,7 +35,7 @@ export class Sentences {
     const sentence = new Sentence()
     while(true) {
       sentence.addToken(activeToken)
-      if (activeToken.tokenType !== 'WORD') {
+      if (activeToken.getTokenType() !== 'WORD') {
       this.#tokenizer.setNextActiveToken()
       activeToken = this.#tokenizer.getActiveToken()
       break
