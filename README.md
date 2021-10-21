@@ -21,12 +21,18 @@ Automatiska testfall
 |    TC13: Stega fram tills första token är aktiv igen       |   "En mening."      |  [>>>]  |  värde: "En", typ: "WORD"      | PASS |
 |    TC14: Stega bakåt tills första token är aktiv igen       |   "En mening."    |  [<<<]    |  värde: "En", typ: "WORD"      | PASS |
 
+#### Resultat
+![Sentence tester](img/sentence-tests.PNG)
+
 ### Sentences
 
 Automatiska testfall
 | Namn      | Indata | Förväntat | PASS/FAIL |
 | --------- | --------- | ------ | ------- |
 |    TC1: Returnera alla meningar       |   "a. b? c!"        |  Array med tre meningar: a., b? och c!      | PASS |
+
+#### Resultat
+![Sentence tester](img/sentences-tests.PNG)
 
 ### Document
 
@@ -39,9 +45,19 @@ Automatiska testfall
 |    TC3: Returnera alla frågor       |   "a! b? c. d? e! f."        |  Array som innehåller meningarna: b?, d?      | PASS |
 |    TC4: Returnera alla meningar med utropstecken       |   "a! b? c. d? e! f."        |  Array som innehåller meningarna: a!, e!      | PASS |
 
+#### Resultat
+![Sentence tester](img/document-tests.PNG)
+
 ### PrettyPrinter
 
 Manuella testfall
 | Namn      | Indata | Förväntat | PASS/FAIL |
 | --------- | --------- | ------ | ------- |
-|    TC1       |   WordAndDotGrammar        |  “a”      | 1 |
+|    TC1: En vanlig mening       |   "En mening."        |  grön text: "0. En mening."     | PASS |
+|    TC2: Två vanliga meningar       |   "En mening. Annan mening."        |  grön text: "0. En mening." och "1. Annan mening."     | PASS |
+|    TC3: En fråga       |   "En fråga?"        |  röd text: "0. En mening."     | PASS |
+|    TC4: Två frågor       |   "En fråga? Annan fråga?"        |  röd text: "0. En mening." och "1. Annan fråga?"     | PASS |
+|    TC5: En mening med utropstecken       |   "En mening.!"        |  vit text med understreck: "0. En mening!"     | PASS |
+|    TC6: Två meningar med utropstecken       |   "En mening.! Annan mening!"        |  vit text med understreck: "0. En mening!" och "1. Annan mening!"     | PASS |
+|    TC7: En vanlig mening och en fråga       |   "Mening. fråga?"        |  grön text: "0. Mening.", röd text: "1. fråga?"     | PASS |
+|    TC8: En vanlig mening, en fråga och ett utrop       |   "Mening. fråga? utrop!"        |  grön text: "0. Mening.", röd text: "1. fråga?", vit text med understreck: "2. utrop!"     | PASS |
