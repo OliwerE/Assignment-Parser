@@ -4,7 +4,7 @@ import { Sentence } from "./sentence.js"
 
 export class Sentences {
     #tokenizer
-    #sentenceArray = [] // Alla meningar ?, !, .
+    #sentenceArray = []
 
   getSentences() {
     return [...this.#sentenceArray]
@@ -22,7 +22,8 @@ export class Sentences {
 
   #createAllSentences() {
     while(true) {
-      if (this.#tokenizer.getActiveToken().getTokenType() === 'END') {
+      const activeToken = this.#tokenizer.getActiveToken()
+      if (activeToken.getTokenType() === 'END') {
         break
       } else {
         this.#createSentence()

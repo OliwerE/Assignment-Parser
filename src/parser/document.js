@@ -18,10 +18,9 @@ export class Document {
   }
 
   #createSentencesToken() {
-    const sentence = this.#sentences.getSentences()
     return {
       tokenType: 'SENTENCES',
-      value: sentence
+      value: this.#sentences
     }
   }
 
@@ -37,7 +36,7 @@ export class Document {
   }
 
   getAllSentences() {
-    return [...this.#documentTokens[0].value]
+    return [...this.#documentTokens[0].value.getSentences()]
   }
 
   getAllDotSentences() {
@@ -47,10 +46,13 @@ export class Document {
 
   #findSpecificSentenceType(sentenceType) {
     const foundSentences = []
-    const sentencesLength = this.#documentTokens[0].value.length
+    const sentencesTokenValue = this.#documentTokens[0].value
+    const sentencesLength = sentencesTokenValue.getSentences().length
+
     for (let i = 0; i < sentencesLength; i++) {
-      if (this.#documentTokens[0].value[i].getEndType() === sentenceType) {
-        foundSentences.push(this.#documentTokens[0].value[i])
+      const sentence = sentencesTokenValue.getSentences()
+      if (sentence[i].getEndType() === sentenceType) {
+        foundSentences.push(sentence[i])
       }
     }
     return foundSentences

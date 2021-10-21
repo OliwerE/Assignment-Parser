@@ -36,14 +36,17 @@ export class PrettyPrinter {
   }
 
   #printDotSentence(index, sentence) {
-    console.log(`${index}. ` + '\x1b[32m' + sentence.getSentenceString() + '\x1b[0m') // green
+    const sentenceString = sentence.getSentenceString()
+    console.log(`${index}. ` + '\x1b[32m' + sentenceString + '\x1b[0m') // green
   }
 
   #printQuestionSentence(index, sentence) {
-    console.log(`${index}. ` + '\x1b[31m' + sentence.getSentenceString() + '\x1b[0m') // red
+    const sentenceString = sentence.getSentenceString()
+    console.log(`${index}. ` + '\x1b[31m' + sentenceString + '\x1b[0m') // red
   }
 
   #printExclamationSentence(index, sentence) {
-    console.log(`${index}. ` +  '\x1b[4m' + sentence.getSentenceString() + '\x1b[0m') // underscore
+    const sentenceString = sentence.getSentenceString()
+    console.log(`${index}. ` +  '\x1b[4m' + sentenceString + '\x1b[0m') // underscore
   }
 }

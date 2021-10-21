@@ -15,6 +15,7 @@ export const tc1 = () => {
 export const tc2 = () => {
   const d = new Document()
   d.parse('a! b? c. d? e! f.')
+  
   const s = d.getAllDotSentences()
 
   if (s.length === 2 && s[0].getSentenceString() === 'c.' && s[1].getSentenceString() === 'f.') {
